@@ -28,10 +28,10 @@ var slackMsg = function(data) {
     });
 };
 
-SLACKER.prototype.ERR = function(e) {
+SIMPLE_SLACK.prototype.ERR = function(e) {
     if (e) slackMsg(e);
 };
-SLACKER.prototype.ALL = function(e, r) {
+SIMPLE_SLACK.prototype.ALL = function(e, r) {
     if (e) slackMsg(e + "\n\n" + r);
 };
 
