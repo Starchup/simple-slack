@@ -10,7 +10,7 @@ var SIMPLE_SLACK = function(theUri, theContext) {
 
 var slackMsg = function(data) {
     var text;
-    if (context) context + "\n\n" + data;
+    if (context) text = context + "\n\n" + data;
     else text = data;
 
     var options = {
@@ -31,8 +31,4 @@ var slackMsg = function(data) {
 SIMPLE_SLACK.prototype.ERR = function(e) {
     if (e) slackMsg(e);
 };
-SIMPLE_SLACK.prototype.ALL = function(e, r) {
-    if (e) slackMsg(e + "\n\n" + r);
-};
-
 module.exports = SIMPLE_SLACK;
