@@ -1,0 +1,29 @@
+{
+    "name": "simple-slack",
+    "version": "1.0.0",
+    "description": "Simple Slack error logger",
+    "main": "simple-slack.js",
+    "author": {
+        "name": "Starchup Inc",
+        "email": "geoffroy@starchup.com",
+        "url": "http://starchup.com"
+    },
+    "keywords": [
+        "starchup"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/Starchup/simple-slack.git"
+    },
+    "engines": {
+        "node": ">= 0.10"
+    },
+    "dependencies": {
+        "request-promise": "1.0.2"
+    },
+    "scripts": {},
+    "bugs": {
+        "url": "https://github.com/Starchup/simple-slack/issues"
+    },
+    "homepage": "https://github.com/Starchup/simple-slack#readme"
+}
