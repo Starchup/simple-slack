@@ -1,14 +1,20 @@
 var rp = require('request-promise');
 
-var context = "Unkown";
+var context = "Unknown";
 var uri;
 
 var SIMPLE_SLACK = function(theUri, theContext) {
-    context = theContext;
-    uri = theUri;
+    var self = this;
+    self.context = theContext;
+    self.uri = theUri;
+    self.ERR = function(e) {
+        if (e) slackMsg(self.context, self.uri, e);
+    };
+
+    return self;
 };
 
-var slackMsg = function(data) {
+var slackMsg = function(context, uri, data) {
     var text;
     if (context) text = context + "\n\n" + data;
     else text = data;
@@ -28,7 +34,4 @@ var slackMsg = function(data) {
     });
 };
 
-SIMPLE_SLACK.prototype.ERR = function(e) {
-    if (e) slackMsg(e);
-};
 module.exports = SIMPLE_SLACK;
