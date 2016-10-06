@@ -22,6 +22,8 @@ var slackMsg = function(context, uri, data) {
     if (context) text = context + "\n\n" + data;
     else text = data;
 
+    if (!uri) return console.log(text);
+
     var options = {
         method: 'POST',
         uri: uri,
