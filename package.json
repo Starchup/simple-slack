@@ -1,6 +1,6 @@
 {
     "name": "simple-slack",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "Simple Slack error logger",
     "main": "simple-slack.js",
     "author": {
