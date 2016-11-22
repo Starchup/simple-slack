@@ -36,7 +36,6 @@ var slackMsg = function(context, uri, data) {
 
     rp(options).catch(function(e) {
         console.log('Error posting to Slack');
-        console.log(e);
     });
 };
 
