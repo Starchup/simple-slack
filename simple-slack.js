@@ -16,8 +16,9 @@ var SIMPLE_SLACK = function(theUri, theContext) {
 
 var slackMsg = function(context, uri, data) {
 
+    if (!data || data === undefined || data === "") return;
     if (Object(data) === data) data = JSON.stringify(data);
-    if (!data || data === "" || data === "{}") return;
+    if (data === "{}" || data === {}) return;
 
     var text;
     if (context) text = context + "\n\n" + data;
