@@ -16,7 +16,14 @@ var SIMPLE_SLACK = function(theUri, theContext) {
 
 var slackMsg = function(context, uri, data) {
 
-    if (Object(data) === data) data = JSON.stringify(data);
+    //Stringify error objects
+    if (Object(data) === data) {
+        var plainObject = {};
+        Object.getOwnPropertyNames(data).forEach(function(key) {
+            plainObject[key] = data[key];
+        });
+        data = JSON.stringify(plainObject, null, '\t');
+    }
 
     var text;
     if (context) text = context + "\n\n" + data;
