@@ -16,6 +16,8 @@ var SIMPLE_SLACK = function(theUri, theContext) {
 
 var slackMsg = function(context, uri, data) {
 
+    if (!data || data === undefined || data === "") return;
+
     //Stringify error objects
     if (Object(data) === data) {
         var plainObject = {};
@@ -24,6 +26,7 @@ var slackMsg = function(context, uri, data) {
         });
         data = JSON.stringify(plainObject, null, '\t');
     }
+    if (data === "{}" || data === {}) return;
 
     var text;
     if (context) text = context + "\n\n" + data;
@@ -41,8 +44,7 @@ var slackMsg = function(context, uri, data) {
     };
 
     rp(options).catch(function(e) {
-        console.log('Error posting to Slack');
-        console.log(e);
+        console.log(text);
     });
 };
 
